@@ -1,12 +1,15 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Box, Button, VStack } from "native-base";
 
 export const HomeScreen = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <Button title="Test" onPress={() => navigation.navigate("Test")} />
-    </View>
+    <VStack p={5} space={2}>
+      <Button onPress={() => navigation.navigate("Test")}>Test</Button>
+      <Button onPress={() => navigation.navigate("Form")}>Form</Button>
+      <Button onPress={() => navigation.navigate("Form2")}>Form2</Button>
+    </VStack>
   );
 };
 
