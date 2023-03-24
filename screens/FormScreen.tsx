@@ -2,7 +2,6 @@ import {
   Box,
   Checkbox,
   CheckIcon,
-  FormControl,
   HStack,
   Icon,
   Input,
