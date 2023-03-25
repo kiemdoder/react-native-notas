@@ -7,6 +7,7 @@ import { NativeBaseProvider } from "native-base";
 import { StatusBar } from "expo-status-bar";
 import { FormScreen } from "./screens/FormScreen";
 import { FormScreen2 } from "./screens/FormScreen2";
+import { DatatabaseScreen } from "./screens/DatatabaseScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
           <Stack.Screen name="Test" component={TestScreen} />
           <Stack.Screen name="Form" component={FormScreen} />
           <Stack.Screen name="Form2" component={FormScreen2} />
+          <Stack.Screen name="DB" component={DatatabaseScreen} />
         </Stack.Navigator>
         <StatusBar backgroundColor="#3c8" />
       </NativeBaseProvider>

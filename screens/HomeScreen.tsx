@@ -9,6 +9,7 @@ export const HomeScreen = () => {
       <Button onPress={() => navigation.navigate("Test2")}>Test</Button>
       <Button onPress={() => navigation.navigate("Form")}>Form</Button>
       <Button onPress={() => navigation.navigate("Form2")}>Form2</Button>
+      <Button onPress={() => navigation.navigate("DB")}>Database</Button>
     </VStack>
   );
 };
