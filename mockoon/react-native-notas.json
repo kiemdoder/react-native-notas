@@ -1,0 +1,77 @@
+{
+  "uuid": "0fcc4521-3d39-4b0a-b98c-e0f43ed9ed1f",
+  "lastMigration": 25,
+  "name": "React native notas",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3100,
+  "hostname": "0.0.0.0",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "fceb7b2e-5145-489f-8c0d-ea7b486292fb",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "test-db",
+      "responses": [
+        {
+          "uuid": "f7b56c0e-5c1a-4f7a-82ef-829167cc0ecc",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "C:\\Users\\Roelf\\dev\\react-native\\react-native-notas\\testdb\\test.db",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "fceb7b2e-5145-489f-8c0d-ea7b486292fb"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

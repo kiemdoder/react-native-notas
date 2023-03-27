@@ -1,35 +1,45 @@
 import { Button, Text, VStack } from "native-base";
 import { useState } from "react";
 import * as FileSystem from "expo-file-system";
+import * as SQLite from "expo-sqlite";
 
 export const DatatabaseScreen = () => {
   const [downloading, setDownloading] = useState(false);
-  const downloadDb = () => {
+
+  const downloadDb = async () => {
     try {
+      if (!(await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite')).exists) {
+        await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite');
+      }
+
       setDownloading(true);
       console.log("start download..");
-      FileSystem.downloadAsync(
-        "http://192.168.50.200:3100/testdb",
-        FileSystem.documentDirectory + "test.db"
+      const result = await FileSystem.downloadAsync(
+        "http://192.168.50.148:3100/test-db",
+        FileSystem.documentDirectory + "SQLite/test.db"
       )
-        .then((result) => console.log("download result", result))
-        .catch((e) => console.error("download error", e))
-        .finally(() => {
-          console.log("download finished");
-          setDownloading(false);
-        });
-      console.log("called FileSystem.downloadAsync");
+      console.log("download result", result)
     } catch (e) {
-      console.log("download failed", e);
+      console.error("download failed", e);
     } finally {
-      // setDownloading(false);
+      setDownloading(false);
     }
   };
+
+  const openDb = () => {
+    const db = SQLite.openDatabase("test.db");
+    console.log("db", db);
+    db.transaction((tx) => {
+      console.log("execute sql query");
+      tx.executeSql("select * from car;", [], resultSet => console.log("result set:", resultSet));
+    }, err => console.error("sql error:", err))
+  }
 
   return (
     <VStack space={4} p={5}>
       <Button onPress={downloadDb}>Download DB</Button>
       <Text>{downloading ? "Downloading.." : "Idle"}</Text>
+      <Button onPress={openDb} >Open DB</Button>
     </VStack>
   );
 };
